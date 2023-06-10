@@ -3,7 +3,6 @@ package ru.alishev.springcourse.FirstRestApp.models;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
@@ -24,7 +23,7 @@ public class Measurement {
     @NotNull(message = "raining_field should not be empty")
     private Boolean raining;
 
-    @NotNull
+    @NotNull(message = "sensor should not be empty")
     @ManyToOne
     @JoinColumn(name = "sensor_id", referencedColumnName = "id")
     private Sensor sensor;

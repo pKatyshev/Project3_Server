@@ -6,6 +6,7 @@ import ru.alishev.springcourse.FirstRestApp.models.Sensor;
 import ru.alishev.springcourse.FirstRestApp.repositories.MeasurementRepository;
 import ru.alishev.springcourse.FirstRestApp.repositories.SensorRepository;
 import ru.alishev.springcourse.FirstRestApp.util.SensorNotFoundException;
+import ru.alishev.springcourse.FirstRestApp.util.WeatherControllerException;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -31,7 +32,7 @@ public class MeasurementService {
         if (optional.isPresent()) {
             return optional.get();
         } else {
-            return new Measurement();
+            throw new WeatherControllerException("Measurement with id={" + id + "} not found!");
         }
     }
 

@@ -19,8 +19,8 @@ public class Sensor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotNull(message = "Название не должно быть пустым!")
-    @Size(min = 3, max = 30, message = "Название сенсора должно быть от 3 до 30 символов!")
+    @NotNull(message = "sensor_name should not be empty")
+    @Size(min = 3, max = 30, message = "size should be 3-30 chars")
     private String name;
 
 

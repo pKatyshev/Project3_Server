@@ -87,8 +87,14 @@ public class WeatherRestController {
     }
 
     @GetMapping("/measurement")
-    public MeasurementDTO getMeasurement() {
-        return convertToMeasurementDTO(measurementService.findOne(1));
+    public MeasurementDTO getMeasurement(@RequestParam(name = "id") String param) {
+        int id;
+        try{
+            id = Integer.parseInt(param);
+        } catch (NumberFormatException ignore){
+            throw new WeatherControllerException("sensor id=" + param + " is not valid");
+        }
+        return convertToMeasurementDTO(measurementService.findOne(id));
     }
 
     @ExceptionHandler

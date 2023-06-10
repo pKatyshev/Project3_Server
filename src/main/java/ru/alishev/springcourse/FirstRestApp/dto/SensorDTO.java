@@ -10,6 +10,6 @@ import javax.validation.constraints.Size;
 @Setter
 public class SensorDTO {
     @NotNull(message = "sensor_name should not be empty")
-    @Size(min = 3, max = 30, message = "Размер must be 3-30 chars")
+    @Size(min = 3, max = 30, message = "size should be 3-30 chars")
     private String name;
 }
